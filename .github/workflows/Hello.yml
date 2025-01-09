@@ -67,5 +67,5 @@ jobs:
       working-directory: ./working
       
     - name: Run Spring Boot Application
-      run: java -jar target/working-0.0.1-SNAPSHOT.jar
+      run: java -jar working/target/working-0.0.1-SNAPSHOT.jar
 
