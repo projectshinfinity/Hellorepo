@@ -65,3 +65,7 @@ jobs:
     - name: Run tests
       run: mvn test
       working-directory: ./working
+      
+    - name: Run Spring Boot Application
+      run: java -jar target/your-application.jar
+
