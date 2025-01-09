@@ -41,7 +41,7 @@ jobs:
     - name: Run Angular unit tests
       run: |
         cd working/src/main/angular  # Adjust the path if needed
-        npm run test -- --ci --no-watch --browsers=ChromeHeadless
+        ng test --watch=false --browsers=ChromeHeadless
 
     # Copy Angular build files to Spring Boot static folder
     - name: Copy Angular build to static folder
