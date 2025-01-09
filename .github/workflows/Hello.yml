@@ -32,12 +32,12 @@ jobs:
     - name: Build Angular app
       run: |
         cd working/src/main/angular  # Adjust the path if needed
-        npm run build --prod
+        npm run build --configuration production
 
     # Copy Angular build files to Spring Boot static folder
     - name: Copy Angular build to static folder
       run: |
-        cp -r working/src/main/angular/dist//browser/* working/src/main/resources/static/
+        cp -r working/src/main/angular/dist/angular/browser/* working/src/main/resources/static/
 
     # Set up JDK 17
     - name: Set up JDK 17
