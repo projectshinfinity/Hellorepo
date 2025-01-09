@@ -37,6 +37,12 @@ jobs:
         cd working/src/main/angular  # Adjust the path if needed
         ng build --configuration production
 
+    # Run Angular unit tests
+    - name: Run Angular unit tests
+      run: |
+        cd working/src/main/angular  # Adjust the path if needed
+        ng test --watch=false --browsers=ChromeHeadlessCI
+
     # Copy Angular build files to Spring Boot static folder
     - name: Copy Angular build to static folder
       run: |
@@ -54,6 +60,11 @@ jobs:
       run: mvn clean install
       working-directory: ./working
 
+    # Run tests with Maven (Spring Boot)
+    - name: Run Spring Boot tests
+      run: mvn test
+      working-directory: ./working
+
     # Upload build artifact (JAR)
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
@@ -61,11 +72,6 @@ jobs:
         name: build-artifacts
         path: target/*.jar
 
-    # Run tests with Maven
-    - name: Run tests
-      run: mvn test
-      working-directory: ./working
-      
+    # Optional: Run Spring Boot Application (uncomment if you want to deploy)
     # - name: Run Spring Boot Application
     #   run: java -jar working/target/working-0.0.1-SNAPSHOT.jar
-
